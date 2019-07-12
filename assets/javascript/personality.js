@@ -8,95 +8,327 @@ var prompts = [
     {
         prompt: '1. … is reserved',
         weight: -1,
-        class: 'group0'
+        class: 'group0',
+        prompt_values :[
+            {
+                value: 'Strongly Agree', 
+                class: 'btn-default btn-strongly-agree',
+                weight: 1
+            },
+            {
+                value: 'Agree',
+                class: 'btn-default btn-agree',
+                weight: 2,
+            },
+            {
+                value: 'Neutral', 
+                class: 'btn-default',
+                weight: 3
+            },
+            {
+                value: 'Disagree',
+                class: 'btn-default btn-disagree',
+                weight: 4
+            },
+            { 
+                value: 'Strongly Disagree',
+                class: 'btn-default btn-strongly-disagree',
+                weight: 5
+            }
+        ]
     },
     {
-        prompt: 'I get so lost in my thoughts I ignore or forget my surroundings',
+        prompt: '2. … is generally trusting',
         weight: -1,
-        class: 'group1'
+        class: 'group1',
+        prompt_values :[
+            {
+                value: 'Strongly Agree', 
+                class: 'btn-default btn-strongly-agree',
+                weight: 5 
+            },
+            {
+                value: 'Agree',
+                class: 'btn-default btn-agree',
+                weight: 4,
+            },
+            {
+                value: 'Neutral', 
+                class: 'btn-default',
+                weight: 3
+            },
+            {
+                value: 'Disagree',
+                class: 'btn-default btn-disagree',
+                weight: 2
+            },
+            { 
+                value: 'Strongly Disagree',
+                class: 'btn-default btn-strongly-disagree',
+                weight: 1
+            }
+        ]
     },
     {
-        prompt: 'I do not usually initiate conversations',
+        prompt: '3. … tends to be lazy',
         weight: -1,
-        class: 'group2'
+        class: 'group2',
+        prompt_values :[
+            {
+                value: 'Strongly Agree', 
+                class: 'btn-default btn-strongly-agree',
+                weight: 1
+            },
+            {
+                value: 'Agree',
+                class: 'btn-default btn-agree',
+                weight: 2
+            },
+            {
+                value: 'Neutral', 
+                class: 'btn-default',
+                weight: 3
+            },
+            {
+                value: 'Disagree',
+                class: 'btn-default btn-disagree',
+                weight: 4
+            },
+            { 
+                value: 'Strongly Disagree',
+                class: 'btn-default btn-strongly-disagree',
+                weight: 5
+            }
+        ]
     },
     {
-        prompt: 'I prefer not to engage with people who seem angry or upset',
+        prompt: '4. … is relaxed, handles stress well',
         weight: -1,
-        class: 'group3'
+        class: 'group3',
+        prompt_values :[
+            {
+                value: 'Strongly Agree', 
+                class: 'btn-default btn-strongly-agree',
+                weight: 1
+            },
+            {
+                value: 'Agree',
+                class: 'btn-default btn-agree',
+                weight: 2,
+            },
+            {
+                value: 'Neutral', 
+                class: 'btn-default',
+                weight: 3
+            },
+            {
+                value: 'Disagree',
+                class: 'btn-default btn-disagree',
+                weight: 4
+            },
+            { 
+                value: 'Strongly Disagree',
+                class: 'btn-default btn-strongly-disagree',
+                weight: 5
+            }
+        ]
     },
     {
-        prompt: 'I choose my friends carefully',
+        prompt: '5. … has few artistic interests',
         weight: -1,
-        class: 'group4'
+        class: 'group4',
+        prompt_values :[
+            {
+                value: 'Strongly Agree', 
+                class: 'btn-default btn-strongly-agree',
+                weight: 1
+            },
+            {
+                value: 'Agree',
+                class: 'btn-default btn-agree',
+                weight: 2,
+            },
+            {
+                value: 'Neutral', 
+                class: 'btn-default',
+                weight: 3
+            },
+            {
+                value: 'Disagree',
+                class: 'btn-default btn-disagree',
+                weight: 4
+            },
+            { 
+                value: 'Strongly Disagree',
+                class: 'btn-default btn-strongly-disagree',
+                weight: 5
+            }
+        ]
     },
     {
-        prompt: 'I find it difficult to tell stories about myself',
+        prompt: '6. … is outgoing, sociable',
         weight: -1,
-        class: 'group5'
+        class: 'group5',
+        prompt_values :[
+            {
+                value: 'Strongly Agree', 
+                class: 'btn-default btn-strongly-agree',
+                weight: 0
+            },
+            {
+                value: 'Agree',
+                class: 'btn-default btn-agree',
+                weight: 0,
+            },
+            {
+                value: 'Neutral', 
+                class: 'btn-default',
+                weight: 0
+            },
+            {
+                value: 'Disagree',
+                class: 'btn-default btn-disagree',
+                weight: 0
+            },
+            { 
+                value: 'Strongly Disagree',
+                class: 'btn-default btn-strongly-disagree',
+                weight: 0
+            }
+        ]
     },
     {
-        prompt: 'I am usually highly motivated and energetic',
+        prompt: '7. … tends to find fault with others',
         weight: 1,
-        class: 'group6'
+        class: 'group6',
+        prompt_values :[
+            {
+                value: 'Strongly Agree', 
+                class: 'btn-default btn-strongly-agree',
+                weight: 1
+            },
+            {
+                value: 'Agree',
+                class: 'btn-default btn-agree',
+                weight: 2
+            },
+            {
+                value: 'Neutral', 
+                class: 'btn-default',
+                weight: 3
+            },
+            {
+                value: 'Disagree',
+                class: 'btn-default btn-disagree',
+                weight: 4
+            },
+            { 
+                value: 'Strongly Disagree',
+                class: 'btn-default btn-strongly-disagree',
+                weight: 5
+            }
+        ]
     },
     {
-        prompt: 'I find it easy to walk up to a group of people and join in conversation',
+        prompt: '8. … does a thorough job',
         weight: 1,
-        class: 'group7'
+        class: 'group7',
+        prompt_values :[
+            {
+                value: 'Strongly Agree', 
+                class: 'btn-default btn-strongly-agree',
+                weight: 5
+            },
+            {
+                value: 'Agree',
+                class: 'btn-default btn-agree',
+                weight: 4,
+            },
+            {
+                value: 'Neutral', 
+                class: 'btn-default',
+                weight: 3
+            },
+            {
+                value: 'Disagree',
+                class: 'btn-default btn-disagree',
+                weight: 2
+            },
+            { 
+                value: 'Strongly Disagree',
+                class: 'btn-default btn-strongly-disagree',
+                weight: 1
+            }
+        ]
     },
     {
-        prompt: 'Being adaptable is more important than being organized',
+        prompt: '9. … gets nervous easily',
         weight: 1,
-        class: 'group8'
+        class: 'group8',
+        prompt_values :[
+            {
+                value: 'Strongly Agree', 
+                class: 'btn-default btn-strongly-agree',
+                weight: 5
+            },
+            {
+                value: 'Agree',
+                class: 'btn-default btn-agree',
+                weight: 4,
+            },
+            {
+                value: 'Neutral', 
+                class: 'btn-default',
+                weight: 3
+            },
+            {
+                value: 'Disagree',
+                class: 'btn-default btn-disagree',
+                weight: 2
+            },
+            { 
+                value: 'Strongly Disagree',
+                class: 'btn-default btn-strongly-disagree',
+                weight: 1
+            }
+        ]
     },
     {
-        prompt: 'I care more about making sure no one gets upset than winning a debate',
+        prompt: '10. … has an active imagination',
         weight: 1,
-        class: 'group9'
-    },
-    {
-        prompt: 'I often do not feel I have to justify myself to people',
-        weight: 1,
-        class: 'group10'
-    },
-    {
-        prompt: 'I would rather improvise than spend time coming up with a detailed plan',
-        weight: 1,
-        class: 'group11'
+        class: 'group9',
+        prompt_values :[
+            {
+                value: 'Strongly Agree', 
+                class: 'btn-default btn-strongly-agree',
+                weight: 5
+            },
+            {
+                value: 'Agree',
+                class: 'btn-default btn-agree',
+                weight: 4,
+            },
+            {
+                value: 'Neutral', 
+                class: 'btn-default',
+                weight: 3
+            },
+            {
+                value: 'Disagree',
+                class: 'btn-default btn-disagree',
+                weight: 2
+            },
+            { 
+                value: 'Strongly Disagree',
+                class: 'btn-default btn-strongly-disagree',
+                weight: 1
+            }
+        ]
     }
     
     ]
     
-    // This array stores all of the possible values and the weight associated with the value. 
-    // The stronger agreeance/disagreeance, the higher the weight on the user's answer to the prompt.
-    var prompt_values = [
-    {
-        value: 'Strongly Agree', 
-        class: 'btn-default btn-strongly-agree',
-        weight: 5
-    },
-    {
-        value: 'Agree',
-        class: 'btn-default btn-agree',
-        weight: 3,
-    }, 
-    {
-        value: 'Neutral', 
-        class: 'btn-default',
-        weight: 0
-    },
-    {
-        value: 'Disagree',
-        class: 'btn-default btn-disagree',
-        weight: -3
-    },
-    { 
-        value: 'Strongly Disagree',
-        class: 'btn-default btn-strongly-disagree',
-        weight: -5
-    }
-    ]
+    
     
     // For each prompt, create a list item to be inserted in the list group
     function createPromptItems() {
@@ -134,13 +366,13 @@ var prompts = [
             var group = document.createElement('div');
             group.className = 'btn-group btn-group-justified';
     
-            for (var i = 0; i < prompt_values.length; i++) {
+            for (var i = 0; i < prompts[i].prompt_values.length; i++) {
                 var btn_group = document.createElement('div');
                 btn_group.className = 'btn-group';
     
                 var button = document.createElement('button');
-                var button_text = document.createTextNode(prompt_values[i].value);
-                button.className = 'group' + li_index + ' value-btn btn ' + prompt_values[i].class;
+                var button_text = document.createTextNode(prompts[i].prompt_values[i].value);
+                button.className = 'group' + li_index + ' value-btn btn ' + prompts[i].prompt_values[i].class;
                 button.appendChild(button_text);
     
                 btn_group.appendChild(button);
@@ -185,7 +417,7 @@ var prompts = [
     }
     
     // When user clicks a value to agree/disagree with the prompt, display to the user what they selected
-    $('.value-btn').mousedown(function () {
+    $(document).on("click", ".value-btn", function () {
         var classList = $(this).attr('class');
         // console.log(classList);
         var classArr = classList.split(" ");
@@ -198,7 +430,7 @@ var prompts = [
         // And subtract deselected weighted value and add the newly selected weighted value to the total
         if($(this).hasClass('active')) {
             $(this).removeClass('active');
-            total -= (findPromptWeight(prompts, this_group) * findValueWeight(prompt_values, $(this).text()));
+            total += (findPromptWeight(prompts, this_group) * findValueWeight(prompt_values, $(this).text()));
         } else {
             // $('[class='thisgroup).prop('checked', false);
             total -= (findPromptWeight(prompts, this_group) * findValueWeight(prompt_values, $('.'+this_group+'.active').text()));
@@ -216,7 +448,7 @@ var prompts = [
     
     
     
-    $('#submit-btn').click(function () {
+    $(document).on("click", "#submit-btn", function () {
         // After clicking submit, add up the totals from answers
         // For each group, find the value that is active
         $('.results').removeClass('hide');
