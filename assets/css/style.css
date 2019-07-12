@@ -1,8 +1,12 @@
 .jumbotron{
-    background-image: url("https://cdn.newsapi.com.au/image/v1/25940ab648c05089dd4612d4f778d21c?width=1024");
+    background-image: url("https://files.slack.com/files-pri/TKD85M50X-FLDM0TAMD/beer-stock3.jpg");
     color: rgb(255, 255, 255);
     padding-bottom: 10px;
     max-width: 100%;
+    background-position: left;
+    background-color: black;
+    background-repeat: no-repeat;
+    max-height: 100%;
  
 }
 form{
@@ -23,4 +27,9 @@ form{
 #brewology{
    width: 100%;
 }
-    
+#nav-wrapper{
+background-color: black
+}
+
+
+   
