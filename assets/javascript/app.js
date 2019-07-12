@@ -14,4 +14,6 @@ $.ajax({
   }
 }).then(function(response) {
   console.log(response);
+  //create a variable to temporarily store a variable
+  //onclick function so that response appears only when viewer clicks on the zip code or finishes the personality test
 });
