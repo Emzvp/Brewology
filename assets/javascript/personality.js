@@ -1,13 +1,9 @@
 // A personality quiz
 
-// This is an array of objects that stores the personality trait that is prompted to the user and the weight for each prompt. 
-// If a personality trait is considered more introverted, it will have a negative weight.
-// If a personlity trait is considered more extroverted, it will have a positive weight.
-
 var prompts = [
     {
         prompt: '1. … is reserved',
-        weight: -1,
+        trait: "Extraversion",
         class: 'group0',
         prompt_values :[
             {
@@ -39,7 +35,7 @@ var prompts = [
     },
     {
         prompt: '2. … is generally trusting',
-        weight: -1,
+        trait: "Agreeableness",
         class: 'group1',
         prompt_values :[
             {
@@ -71,7 +67,7 @@ var prompts = [
     },
     {
         prompt: '3. … tends to be lazy',
-        weight: -1,
+        trait: "Conscientiousness",
         class: 'group2',
         prompt_values :[
             {
@@ -103,7 +99,7 @@ var prompts = [
     },
     {
         prompt: '4. … is relaxed, handles stress well',
-        weight: -1,
+        trait: "Neuroticism",
         class: 'group3',
         prompt_values :[
             {
@@ -135,7 +131,7 @@ var prompts = [
     },
     {
         prompt: '5. … has few artistic interests',
-        weight: -1,
+        trait: "Openness to Experience",
         class: 'group4',
         prompt_values :[
             {
@@ -167,39 +163,39 @@ var prompts = [
     },
     {
         prompt: '6. … is outgoing, sociable',
-        weight: -1,
+        trait: "Extraversion",
         class: 'group5',
         prompt_values :[
             {
                 value: 'Strongly Agree', 
                 class: 'btn-default btn-strongly-agree',
-                weight: 0
+                weight: 5
             },
             {
                 value: 'Agree',
                 class: 'btn-default btn-agree',
-                weight: 0,
+                weight: 4
             },
             {
                 value: 'Neutral', 
                 class: 'btn-default',
-                weight: 0
+                weight: 3
             },
             {
                 value: 'Disagree',
                 class: 'btn-default btn-disagree',
-                weight: 0
+                weight: 2
             },
             { 
                 value: 'Strongly Disagree',
                 class: 'btn-default btn-strongly-disagree',
-                weight: 0
+                weight: 1
             }
         ]
     },
     {
         prompt: '7. … tends to find fault with others',
-        weight: 1,
+        trait: "Agreeableness",
         class: 'group6',
         prompt_values :[
             {
@@ -231,7 +227,7 @@ var prompts = [
     },
     {
         prompt: '8. … does a thorough job',
-        weight: 1,
+        trait: "Conscientiousness",
         class: 'group7',
         prompt_values :[
             {
@@ -263,7 +259,7 @@ var prompts = [
     },
     {
         prompt: '9. … gets nervous easily',
-        weight: 1,
+        trait: "Neuroticism",
         class: 'group8',
         prompt_values :[
             {
@@ -295,7 +291,7 @@ var prompts = [
     },
     {
         prompt: '10. … has an active imagination',
-        weight: 1,
+        trait: "Openness to Experience",
         class: 'group9',
         prompt_values :[
             {
@@ -324,71 +320,34 @@ var prompts = [
                 weight: 1
             }
         ]
-    }
+    }]
     
-    ]
-    
-    
-    
-    // For each prompt, create a list item to be inserted in the list group
+    // For each prompt, create a a p tag to hold questions
     function createPromptItems() {
-    
         for (var i = 0; i < prompts.length; i++) {
-            var prompt_li = document.createElement('li');
-            var prompt_p = document.createElement('p');
-            var prompt_text = document.createTextNode(prompts[i].prompt);
-    
-            prompt_li.setAttribute('class', 'list-group-item prompt');
-            prompt_p.appendChild(prompt_text);
-            prompt_li.appendChild(prompt_p);
-    
-            document.getElementById('quiz').appendChild(prompt_li);
-        }
-    }
-    
-    // For each possible value, create a button for each to be inserted into each li of the quiz
-    // function createValueButtons() {
-        
-    // 	for (var li_index = 0; li_index < prompts.length; li_index++) {
-    // 		for (var i = 0; i < prompt_values.length; i++) {
-    // 			var val_button = document.createElement('button');
-    // 			var val_text = document.createTextNode(prompt_values[i].value);
-    
-    // 			val_button.setAttribute('class', 'value-btn btn ' + prompt_values[i].class);
-    // 			val_button.appendChild(val_text);
-    
-    // 			document.getElementsByClassName('prompt')[li_index].appendChild(val_button);
-    // 		}
-    // 	}
-    // }
-    function createValueButtons() {
-        for (var li_index = 0; li_index < prompts.length; li_index++) {
-            var group = document.createElement('div');
-            group.className = 'btn-group btn-group-justified';
-    
-            for (var i = 0; i < prompts[i].prompt_values.length; i++) {
-                var btn_group = document.createElement('div');
-                btn_group.className = 'btn-group';
-    
-                var button = document.createElement('button');
-                var button_text = document.createTextNode(prompts[i].prompt_values[i].value);
-                button.className = 'group' + li_index + ' value-btn btn ' + prompts[i].prompt_values[i].class;
-                button.appendChild(button_text);
-    
-                btn_group.appendChild(button);
-                group.appendChild(btn_group);
-    
-                document.getElementsByClassName('prompt')[li_index].appendChild(group);
+            var inputlVal = prompts[i].prompt;
+            var promptsVals = prompts[0].prompt_values;
+            $("#quiz").append(`<p>${inputlVal}</p>`);
+
+            for (var x=0; x < promptsVals.length; x++) {
+                console.log("loop hit")
+                console.log(promptsVals)
+                var radioVal = prompts[i].prompt_values[x].value;
+                console.log(radioVal)
+                var inputGroup = "group" + i;
+                $('#quiz').append(`<li><label>
+                <input name="${inputGroup}" type="radio"/>
+                <span>${radioVal}</span>
+              </label></li>`)
             }
         }
     }
     
     createPromptItems();
-    createValueButtons();
     
     // Keep a running total of the values they have selected. If the total is negative, the user is introverted. If positive, user is extroverted.
     // Calculation will sum all of the answers to the prompts using weight of the value * the weight of the prompt.
-    var total = 0;
+    
     
     // Get the weight associated to group number
     function findPromptWeight(prompts, group) {
@@ -412,7 +371,6 @@ var prompts = [
                 weight = values[i].weight;
             }
         }
-    
         return weight;
     }
     
@@ -433,7 +391,7 @@ var prompts = [
             total += (findPromptWeight(prompts, this_group) * findValueWeight(prompt_values, $(this).text()));
         } else {
             // $('[class='thisgroup).prop('checked', false);
-            total -= (findPromptWeight(prompts, this_group) * findValueWeight(prompt_values, $('.'+this_group+'.active').text()));
+            total += (findPromptWeight(prompts, this_group) * findValueWeight(prompt_values, $('.'+this_group+'.active').text()));
             // console.log($('.'+this_group+'.active').text());
             $('.'+this_group).removeClass('active');
     
