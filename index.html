@@ -12,7 +12,8 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link rel="stylesheet" href="assets/css/style.css">
-
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 
@@ -27,19 +28,19 @@
         </div>
 
         <div class="row">
-            <div class="col-7 col-sm-7">
+            <div class="col-7 col-sm-6">
                 <div class="card">
-                        <form>
-                                <div class="form-group">
-                                  <label for="zipCode">Zip Code:</label>
-                                  <input type="text" class="form-control" id="zipCode"  placeholder="Enter Zip">
-                                 
-                                </div>
-                               
-                               
-                                <button type="submit" class="btn btn-primary">Search</button>
-                              </form>
-                              
+                    <form>
+                        <div class="form-group">
+                            <label for="zipCode">Zip Code:</label>
+                            <input type="text" class="form-control" id="zipCode" placeholder="Enter Zip">
+
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+
                 </div>
 
                 <div class="row">
@@ -67,13 +68,28 @@
                 </div>
 
             </div>
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <div class="card" id="articleContainer">
                     <div class="card-header">
-                        Survey
+                        <h1>Personality Test</h1>
                     </div>
-
                     <div id="articleDiv">
+                        <div class="container text-center">
+                            <!-- Results are hidden until Submit button is clicked -->
+                            <div class="container text-center results hide">
+                                <p id="results"></p>
+                            </div>
+                            <P>Instructions: How well do the following statements describe your personality?</P>
+                            <p> I see myself as someone who …</p>
+                            <ul id="quiz" class="list-group">
+                            </ul>
+                        </div>
+                        <div class="container text-center hide results">
+                        </div>
+                        <div class="container text-center bottom">
+                            <button id="submit-btn" class="btn btn-primary btn-lg">Submit</button>
+                            <button id="retake-btn" class="hide btn btn-primary btn-lg">Retake Quiz</button>
+                        </div>
 
                     </div>
                 </div>
@@ -84,10 +100,9 @@
     </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
 
+    <script src="assets/javascript/app.js"></script>
+    <script src="assets/javascript/personality.js"></script>
 </body>
 
 </html>
