@@ -1,412 +1,195 @@
-// A personality quiz
+// -------------Start of Quiz --------------//
 
+//variable for quiz stored in an array where each question is its own object 
 var prompts = [
     {
         prompt: '1. … is reserved',
         trait: "Extraversion",
         class: 'group0',
         prompt_values :[
-            {
-                value: 'Strongly Agree', 
-                class: 'btn-default btn-strongly-agree',
-                weight: 1
-            },
-            {
-                value: 'Agree',
-                class: 'btn-default btn-agree',
-                weight: 2,
-            },
-            {
-                value: 'Neutral', 
-                class: 'btn-default',
-                weight: 3
-            },
-            {
-                value: 'Disagree',
-                class: 'btn-default btn-disagree',
-                weight: 4
-            },
-            { 
-                value: 'Strongly Disagree',
-                class: 'btn-default btn-strongly-disagree',
-                weight: 5
-            }
-        ]
+            {value: 'Strongly Agree', weight: 1},
+            {value: 'Agree', weight: 2,},
+            {value: 'Neutral', weight: 3},
+            {value: 'Disagree', weight: 4},
+            {value: 'Strongly Disagree',weight: 5}
+        ],
+        userChoice: ""
     },
     {
         prompt: '2. … is generally trusting',
         trait: "Agreeableness",
         class: 'group1',
         prompt_values :[
-            {
-                value: 'Strongly Agree', 
-                class: 'btn-default btn-strongly-agree',
-                weight: 5 
-            },
-            {
-                value: 'Agree',
-                class: 'btn-default btn-agree',
-                weight: 4,
-            },
-            {
-                value: 'Neutral', 
-                class: 'btn-default',
-                weight: 3
-            },
-            {
-                value: 'Disagree',
-                class: 'btn-default btn-disagree',
-                weight: 2
-            },
-            { 
-                value: 'Strongly Disagree',
-                class: 'btn-default btn-strongly-disagree',
-                weight: 1
-            }
-        ]
+            {value: 'Strongly Agree', weight: 5},
+            {value: 'Agree', weight: 4},
+            {value: 'Neutral', weight: 3},
+            {value: 'Disagree', weight: 2},
+            {value: 'Strongly Disagree',weight: 1}
+        ],
+        userChoice: ""
     },
     {
         prompt: '3. … tends to be lazy',
         trait: "Conscientiousness",
         class: 'group2',
         prompt_values :[
-            {
-                value: 'Strongly Agree', 
-                class: 'btn-default btn-strongly-agree',
-                weight: 1
-            },
-            {
-                value: 'Agree',
-                class: 'btn-default btn-agree',
-                weight: 2
-            },
-            {
-                value: 'Neutral', 
-                class: 'btn-default',
-                weight: 3
-            },
-            {
-                value: 'Disagree',
-                class: 'btn-default btn-disagree',
-                weight: 4
-            },
-            { 
-                value: 'Strongly Disagree',
-                class: 'btn-default btn-strongly-disagree',
-                weight: 5
-            }
-        ]
+            {value: 'Strongly Agree', weight: 1},
+            {value: 'Agree',weight: 2},
+            {value: 'Neutral',weight: 3},
+            {value: 'Disagree',weight: 4},
+            {value: 'Strongly Disagree',weight: 5}
+        ],
+        userChoice: ""
     },
     {
         prompt: '4. … is relaxed, handles stress well',
         trait: "Neuroticism",
         class: 'group3',
         prompt_values :[
-            {
-                value: 'Strongly Agree', 
-                class: 'btn-default btn-strongly-agree',
-                weight: 1
-            },
-            {
-                value: 'Agree',
-                class: 'btn-default btn-agree',
-                weight: 2,
-            },
-            {
-                value: 'Neutral', 
-                class: 'btn-default',
-                weight: 3
-            },
-            {
-                value: 'Disagree',
-                class: 'btn-default btn-disagree',
-                weight: 4
-            },
-            { 
-                value: 'Strongly Disagree',
-                class: 'btn-default btn-strongly-disagree',
-                weight: 5
-            }
-        ]
+            {value: 'Strongly Agree', weight: 1},
+            {value: 'Agree', weight: 2,},
+            {value: 'Neutral', weight: 3},
+            {value: 'Disagree', weight: 4},
+            {value: 'Strongly Disagree',weight: 5}
+        ],
+        userChoice: ""
     },
     {
         prompt: '5. … has few artistic interests',
         trait: "Openness to Experience",
         class: 'group4',
         prompt_values :[
-            {
-                value: 'Strongly Agree', 
-                class: 'btn-default btn-strongly-agree',
-                weight: 1
-            },
-            {
-                value: 'Agree',
-                class: 'btn-default btn-agree',
-                weight: 2,
-            },
-            {
-                value: 'Neutral', 
-                class: 'btn-default',
-                weight: 3
-            },
-            {
-                value: 'Disagree',
-                class: 'btn-default btn-disagree',
-                weight: 4
-            },
-            { 
-                value: 'Strongly Disagree',
-                class: 'btn-default btn-strongly-disagree',
-                weight: 5
-            }
-        ]
+            {value: 'Strongly Agree', weight: 1},
+            {value: 'Agree', weight: 2,},
+            {value: 'Neutral', weight: 3},
+            {value: 'Disagree', weight: 4},
+            {value: 'Strongly Disagree',weight: 5}
+        ],
+        userChoice: ""
     },
     {
         prompt: '6. … is outgoing, sociable',
         trait: "Extraversion",
         class: 'group5',
         prompt_values :[
-            {
-                value: 'Strongly Agree', 
-                class: 'btn-default btn-strongly-agree',
-                weight: 5
-            },
-            {
-                value: 'Agree',
-                class: 'btn-default btn-agree',
-                weight: 4
-            },
-            {
-                value: 'Neutral', 
-                class: 'btn-default',
-                weight: 3
-            },
-            {
-                value: 'Disagree',
-                class: 'btn-default btn-disagree',
-                weight: 2
-            },
-            { 
-                value: 'Strongly Disagree',
-                class: 'btn-default btn-strongly-disagree',
-                weight: 1
-            }
-        ]
+            {value: 'Strongly Agree', weight: 5},
+            {value: 'Agree', weight: 4},
+            {value: 'Neutral', weight: 3},
+            {value: 'Disagree', weight: 2},
+            {value: 'Strongly Disagree',weight: 1}
+        ],
+        userChoice: ""
     },
     {
         prompt: '7. … tends to find fault with others',
         trait: "Agreeableness",
         class: 'group6',
         prompt_values :[
-            {
-                value: 'Strongly Agree', 
-                class: 'btn-default btn-strongly-agree',
-                weight: 1
-            },
-            {
-                value: 'Agree',
-                class: 'btn-default btn-agree',
-                weight: 2
-            },
-            {
-                value: 'Neutral', 
-                class: 'btn-default',
-                weight: 3
-            },
-            {
-                value: 'Disagree',
-                class: 'btn-default btn-disagree',
-                weight: 4
-            },
-            { 
-                value: 'Strongly Disagree',
-                class: 'btn-default btn-strongly-disagree',
-                weight: 5
-            }
-        ]
+            {value: 'Strongly Agree', weight: 1},
+            {value: 'Agree', weight: 2,},
+            {value: 'Neutral', weight: 3},
+            {value: 'Disagree', weight: 4},
+            {value: 'Strongly Disagree',weight: 5}
+        ],
+        userChoice: ""
     },
     {
         prompt: '8. … does a thorough job',
         trait: "Conscientiousness",
         class: 'group7',
         prompt_values :[
-            {
-                value: 'Strongly Agree', 
-                class: 'btn-default btn-strongly-agree',
-                weight: 5
-            },
-            {
-                value: 'Agree',
-                class: 'btn-default btn-agree',
-                weight: 4,
-            },
-            {
-                value: 'Neutral', 
-                class: 'btn-default',
-                weight: 3
-            },
-            {
-                value: 'Disagree',
-                class: 'btn-default btn-disagree',
-                weight: 2
-            },
-            { 
-                value: 'Strongly Disagree',
-                class: 'btn-default btn-strongly-disagree',
-                weight: 1
-            }
-        ]
+            {value: 'Strongly Agree', weight: 5},
+            {value: 'Agree', weight: 4},
+            {value: 'Neutral', weight: 3},
+            {value: 'Disagree', weight: 2},
+            {value: 'Strongly Disagree',weight: 1}
+        ],
+        userChoice: ""
     },
     {
         prompt: '9. … gets nervous easily',
         trait: "Neuroticism",
         class: 'group8',
         prompt_values :[
-            {
-                value: 'Strongly Agree', 
-                class: 'btn-default btn-strongly-agree',
-                weight: 5
-            },
-            {
-                value: 'Agree',
-                class: 'btn-default btn-agree',
-                weight: 4,
-            },
-            {
-                value: 'Neutral', 
-                class: 'btn-default',
-                weight: 3
-            },
-            {
-                value: 'Disagree',
-                class: 'btn-default btn-disagree',
-                weight: 2
-            },
-            { 
-                value: 'Strongly Disagree',
-                class: 'btn-default btn-strongly-disagree',
-                weight: 1
-            }
-        ]
+            {value: 'Strongly Agree', weight: 5},
+            {value: 'Agree', weight: 4},
+            {value: 'Neutral', weight: 3},
+            {value: 'Disagree', weight: 2},
+            {value: 'Strongly Disagree',weight: 1}
+        ],
+        userChoice: ""
     },
     {
         prompt: '10. … has an active imagination',
         trait: "Openness to Experience",
         class: 'group9',
         prompt_values :[
-            {
-                value: 'Strongly Agree', 
-                class: 'btn-default btn-strongly-agree',
-                weight: 5
-            },
-            {
-                value: 'Agree',
-                class: 'btn-default btn-agree',
-                weight: 4,
-            },
-            {
-                value: 'Neutral', 
-                class: 'btn-default',
-                weight: 3
-            },
-            {
-                value: 'Disagree',
-                class: 'btn-default btn-disagree',
-                weight: 2
-            },
-            { 
-                value: 'Strongly Disagree',
-                class: 'btn-default btn-strongly-disagree',
-                weight: 1
-            }
-        ]
+            {value: 'Strongly Agree', weight: 5},
+            {value: 'Agree', weight: 4},
+            {value: 'Neutral', weight: 3},
+            {value: 'Disagree', weight: 2},
+            {value: 'Strongly Disagree',weight: 1}
+        ],
+        userChoice: ""
     }]
     
-    // For each prompt, create a a p tag to hold questions
+    // For each prompt, create a p tag to hold questions
     function createPromptItems() {
         for (var i = 0; i < prompts.length; i++) {
             var inputlVal = prompts[i].prompt;
             var promptsVals = prompts[0].prompt_values;
             $("#quiz").append(`<p>${inputlVal}</p>`);
-
+            //for each option create a radio button that groups questions together
             for (var x=0; x < promptsVals.length; x++) {
-                console.log("loop hit")
-                console.log(promptsVals)
                 var radioVal = prompts[i].prompt_values[x].value;
-                console.log(radioVal)
                 var inputGroup = "group" + i;
-                $('#quiz').append(`<li><label>
-                <input name="${inputGroup}" type="radio"/>
-                <span>${radioVal}</span>
-              </label></li>`)
+                $('#quiz').append(`<li><label><input class="form-check-input" name="${inputGroup}" type="radio"/><span class="form-check-input" name="${inputGroup}">${radioVal}</span></label></li>`)
             }
         }
-    }
-    
+    } 
     createPromptItems();
     
-    // Keep a running total of the values they have selected. If the total is negative, the user is introverted. If positive, user is extroverted.
-    // Calculation will sum all of the answers to the prompts using weight of the value * the weight of the prompt.
-    
-    
-    // Get the weight associated to group number
-    function findPromptWeight(prompts, group) {
-        var weight = 0;
-    
-        for (var i = 0; i < prompts.length; i++) {
-            if (prompts[i].class === group) {
-                weight = prompts[i].weight;
+    // function that stores user answer 
+    $('#quiz').on('change', '.form-check-input', function () {
+        // GET question index out of "name" attribute so we know what question you answered
+        const questionIndex = $(this).attr('name');
+        // get value out of radio button selected
+        console.log(questionIndex);
+        const answer = $(this).val();
+        // set answer to question's userAnswer property
+        console.log(answer);
+        prompts.prompt_values[questionIndex].userChoice = answer;
+    });
+
+ //---------------------------------------RESPONSE / SUBMISSION LOGIC -------------------//   
+    //function that adds values together and displays results 
+    var oTotal = 0;
+    var cTotal = 0;
+    var eTotal = 0;
+    var aTotal = 0;
+    var nTotal = 0;
+    var resultResponse =[
+
+    ];
+    $("#submit").click(function () {
+        //clear interval
+        clearInterval();
+        //loop through the object movieQuotes and see if the changed value of userChoice is the same as the correctChoice
+        movieQuotes.forEach(function (question) {
+            //update number of correct answers 
+            if (question.correctChoice === question.userChoice) {
+                numCorrect += 1;
             }
-        }
-    
-        return weight;
-    }
-    
-    // Get the weight associated to the value
-    function findValueWeight(values, value) {
-        var weight = 0;
-    
-        for (var i = 0; i < values.length; i++) {
-            if (values[i].value === value) {
-                weight = values[i].weight;
-            }
-        }
-        return weight;
-    }
-    
-    // When user clicks a value to agree/disagree with the prompt, display to the user what they selected
-    $(document).on("click", ".value-btn", function () {
-        var classList = $(this).attr('class');
-        // console.log(classList);
-        var classArr = classList.split(" ");
-        // console.log(classArr);
-        var this_group = classArr[0];
-        // console.log(this_group);
-    
-        // If button is already selected, de-select it when clicked and subtract any previously added values to the total
-        // Otherwise, de-select any selected buttons in group and select the one just clicked
-        // And subtract deselected weighted value and add the newly selected weighted value to the total
-        if($(this).hasClass('active')) {
-            $(this).removeClass('active');
-            total += (findPromptWeight(prompts, this_group) * findValueWeight(prompt_values, $(this).text()));
-        } else {
-            // $('[class='thisgroup).prop('checked', false);
-            total += (findPromptWeight(prompts, this_group) * findValueWeight(prompt_values, $('.'+this_group+'.active').text()));
-            // console.log($('.'+this_group+'.active').text());
-            $('.'+this_group).removeClass('active');
-    
-            // console.log('group' + findValueWeight(prompt_values, $('.'+this_group).text()));
-            // $(this).prop('checked', true);
-            $(this).addClass('active');
-            total += (findPromptWeight(prompts, this_group) * findValueWeight(prompt_values, $(this).text()));
-        }
-    
-        console.log(total);
-    })
-    
-    
-    
+        })
+        var h2Results = $('<h2>').text("You got " + numCorrect + " out of 10 correct!");
+        $("#questions").remove();
+        $("#display").remove();
+        $("#submit").remove();
+        $("#questionaire").append('<img src="assets/images/theEnd.gif" class="img-fluid rounded mx-auto d-block" alt="Responsive image">');
+        $("#results").append(h2Results);
+    });
     $(document).on("click", "#submit-btn", function () {
+        
         // After clicking submit, add up the totals from answers
         // For each group, find the value that is active
         $('.results').removeClass('hide');
