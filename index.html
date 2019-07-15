@@ -8,9 +8,6 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
@@ -26,6 +23,11 @@
 
         }
 
+        body {
+            background-image: url("https://ae01.alicdn.com/kf/HTB1z4mMIVXXXXbeXFXXq6xXFXXXc/7X5ft-free-shipping-Thin-vinyl-fabric-computer-Printed-photography-background-wood-floor-photo-backdrops-for-photo.jpg");
+
+        }
+
         form {
             /* border: 2px solid #222; */
             padding: 2%;
@@ -35,6 +37,9 @@
         .btn-outline-light {
             color: rgb(255, 255, 255);
         }
+
+
+
 
         .fa {
             padding-right: 2px;
@@ -47,20 +52,32 @@
 
         #brewology {
             width: 100%;
+
         }
 
-        /* Changes for Yelp API */
+        #surveyDiv {
+            background-color: transparent
+        }
+
+        #surveyDiv::after {
+            content: "#surveyDiv";
+            background: url(image.jpg);
+            opacity: 0.5;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;
+        }
 
         #articleDiv {
             margin: 20px;
         }
 
         .yelp-images {
-            height: 200px;
-            width: 200px;
+           width:100%;
         }
-
-        /* Changes for Yelp API */
     </style>
 
     <title>Document</title>
@@ -76,7 +93,7 @@
 
         </div>
 
-        <div class="row">
+        ```<div class="row">
             <div class="col s12 m5">
                 <div class="card">
                     <div class="card-image">
@@ -85,7 +102,7 @@
                         <span class="card-title">Personality Test:</span>
                     </div>
                     <div class="card-content">
-                        <div id="articleDiv">
+                        <div id="surveyDiv">
                             <div class="container text-center">
                                 <!-- Results are hidden until Submit button is clicked -->
                                 <div class="container text-center results hide">
@@ -93,8 +110,10 @@
                                 </div>
                                 <P>Instructions: How well do the following statements describe your personality?</P>
                                 <p> I see myself as someone who …</p>
-                                <ul id="quiz" class="list-group">
-                                </ul>
+                                <form>
+                                    <ul id="quiz" class="list-group">
+                                    </ul>
+                                </form>
                             </div>
 
 
@@ -102,128 +121,35 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>```
 
-        <div class="row">
-            <div class="col-12 col-sm-12">
-                <div class="card" id="articleContainer">
-                    <div class="card-header">
-                        beers
-                    </div>
 
-                    <div id="articleDiv">
+        
 
-                    </div>
-                </div>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Zipcode" aria-label="Search"
+                id="search-term">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="run-search">Search</button>
+        </form>
+        <div class="container">
+            <div class="row" id="yelpArticles">
             </div>
         </div>
 
-
-        <div class="row">
-            <div class="col-12 col-md-12">
-                <footer>
-                    <hr>
-                    <h4 class="text-center"></h4>
-                </footer>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="col-md-12">
-        <div class="card" id="articleContainer">
-            <div class="card-header">
-                <p></p>
-            </div>
-
-            <div id="articleDiv">
-
-            </div>
-        </div>
-
-    </div>
-    </div>
-
-
-    <!-- Changes that I have added- rows and columns for API -->
-    <!-- <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form> -->
-     
-     <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Zipcode" aria-label="Search" id="search-term">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="run-search">Search</button>
-      </form>
-
-
-    <!-- Results should be hidden until user inputs their address -->
-    <div class="container">
-         <div class="row" id="yelpArticles">
-
-            <!-- <div class="col-md-6">
-                <div class="card" id="articleContainer">
-                    <div class="card-header" id="yelpResult0">
-                    </div>
-
-                    <div id="articleDiv">
-                        <p id="yelpAddress0"></p>
-                        <p id="yelp-image0"></p>
-                        <p id="yelpRating0"></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="card" id="articleContainer">
-                    <div class="card-header" id="yelpResult1">
-                    </div>
-
-                    <div id="articleDiv">
-                        <p id="yelpAddress1"></p>
-                        <p id="yelp-image1"></p>
-                        <p id="yelpRating1"></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="card" id="articleContainer">
-                    <div class="card-header" id="yelpResult2">
-                    </div>
-
-                    <div id="articleDiv">
-                        <p id="yelpAddress2"></p>
-                        <p id="yelp-image2"></p>
-                        <p id="yelpRating2"></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="card" id="articleContainer">
-                    <div class="card-header" id="yelpResult3">
-                    </div>
-
-                    <div id="articleDiv">
-                        <p id="yelpAddress3"></p>
-                        <p id="yelp-image3"></p>
-                        <p id="yelpRating3"></p>
-                    </div>
-                </div>
-            </div> -->
-        </div>
-    </div>
-    <!--End of changes-->
-
-
-
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="assets/javascript/personality.js"></script>
-    <script src="assets/javascript/app.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="assets/javascript/personality.js"></script>
+        <script src="assets/javascript/app.js"></script>
 
 </body>
 

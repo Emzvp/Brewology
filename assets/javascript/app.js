@@ -1,19 +1,10 @@
 $(document).ready(function() {
-  //ajax call for Yelp Fusion API with work around for CORS
-
-  //api function
-  //click function to call api function
-    //click function to search location- allow user input
-  //api function has parameter called location
-  //click function will pull user choice to var location
-  //var location stores user choice input
-  //location will be passed to the api function
 
   $("#yelpArticles").hide();
 
   $("#run-search").on("click", function(){
     event.preventDefault();
-    // clear();
+    $("#yelpArticles").empty();
     var userInput = $("input").eq(0).val();
 
        $("#yelpArticles").show();
@@ -40,21 +31,17 @@ function yelpQueryURL (userInput) {
     console.log(response);
 
     // looping through all of the yelp businesses to display the name, address, and image
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 12; i++) {
 
-      $("#yelpArticles").append(`
-      <div class="col-md-6">
-      <div class="card" id="articleContainer">
-          <div class="card-header" id="yelpResult${i}">
-          </div>
-      
-          <div id="articleDiv">
-              <p id="yelpAddress${i}"></p>
-              <img id="yelp-image${i}">
-              <p id="yelpRating${i}"></p>
-          </div>
-      </div>
-      </div>`)
+      $("#yelpArticles").append(
+      `<div class="card m-5" style="width: 18rem;" >
+               <img id="yelp-image${i}" class="card-img-top img-fluid">
+               <div class="card-body">
+               <p id="yelpResult${i}"></p>
+               <p id="yelpAddress${i}"></p>
+               <p id="yelpRating${i}"></p>
+               </div>
+             </div>`)
 
 
       var name = response.businesses[i].name;
@@ -79,21 +66,15 @@ function yelpQueryURL (userInput) {
     }
   });
 }
-
-
   // Beers: Light beers, Sours, Ciders, Porters, IPA
 
-  // Giphy API
-  // $(document).on("click", "#cheersButton", function() {
-
   $("#cheersButton").on("click", function() {
-    // })
-    // var idLite = "lz4APvJRdLxLBwZOG9";
-    // var queryUrl =
-    //   "https://api.giphy.com/v1/gifs/" +
-    //   idLite +
-    //   "?api_key=2bWMtTcIEwQIgbcCIAOXnhGFI9XyklEZ";
-   var queryUrl ="https://api.giphy.com/v1/gifs/random?api_key=2bWMtTcIEwQIgbcCIAOXnhGFI9XyklEZ&tag=beer&rating=G"
+    
+    var id = "xUPGcFeJiX8IImdEsw";
+    var queryUrl =
+      "https://api.giphy.com/v1/gifs/" +
+      id +
+      "?api_key=2bWMtTcIEwQIgbcCIAOXnhGFI9XyklEZ";
 
     $.ajax({
       url: queryUrl,
