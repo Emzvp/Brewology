@@ -49,15 +49,18 @@
             width: 100%;
         }
 
+        /* Changes for Yelp API */
+
+        #articleDiv {
+            margin: 20px;
+        }
+
         .yelp-images {
             height: 200px;
             width: 200px;
         }
 
-        /* #yelp-image0 {
-    height: 200px;
-    width: 200px;
-} */
+        /* Changes for Yelp API */
     </style>
 
     <title>Document</title>
@@ -101,7 +104,6 @@
             </div>
         </div>
 
-        <input type="text" hidden>
         <div class="row">
             <div class="col-12 col-sm-12">
                 <div class="card" id="articleContainer">
@@ -144,11 +146,22 @@
 
 
     <!-- Changes that I have added- rows and columns for API -->
+    <!-- <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form> -->
+     
+     <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Zipcode" aria-label="Search" id="search-term">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="run-search">Search</button>
+      </form>
+
+
     <!-- Results should be hidden until user inputs their address -->
     <div class="container">
-        <div class="row">
+         <div class="row" id="yelpArticles">
 
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
                 <div class="card" id="articleContainer">
                     <div class="card-header" id="yelpResult0">
                     </div>
@@ -156,11 +169,10 @@
                     <div id="articleDiv">
                         <p id="yelpAddress0"></p>
                         <p id="yelp-image0"></p>
+                        <p id="yelpRating0"></p>
                     </div>
                 </div>
             </div>
-
-
 
             <div class="col-md-6">
                 <div class="card" id="articleContainer">
@@ -170,56 +182,48 @@
                     <div id="articleDiv">
                         <p id="yelpAddress1"></p>
                         <p id="yelp-image1"></p>
+                        <p id="yelpRating1"></p>
                     </div>
                 </div>
             </div>
-          
-        
-   
 
-    <!-- //create row so that these two divs appear next to each other -->
-    <!-- <div class="row"></div> -->
-    <div class="col-md-6">
-        <div class="card" id="articleContainer">
-            <div class="card-header" id="yelpResult2">
-            </div>
+            <div class="col-md-6">
+                <div class="card" id="articleContainer">
+                    <div class="card-header" id="yelpResult2">
+                    </div>
 
-            <div id="articleDiv">
-                <p id="yelpAddress2"></p>
-                <p id="yelp-image2"></p>
-            </div>
-        </div>
-    </div>
-
-        <div class="col-md-6">
-            <div class="card" id="articleContainer">
-                <div class="card-header" id="yelpResult3">
-                </div>
-
-                <div id="articleDiv">
-                    <p id="yelpAddress3"></p>
-                    <p id="yelp-image3"></p>
+                    <div id="articleDiv">
+                        <p id="yelpAddress2"></p>
+                        <p id="yelp-image2"></p>
+                        <p id="yelpRating2"></p>
+                    </div>
                 </div>
             </div>
 
+            <div class="col-md-6">
+                <div class="card" id="articleContainer">
+                    <div class="card-header" id="yelpResult3">
+                    </div>
 
+                    <div id="articleDiv">
+                        <p id="yelpAddress3"></p>
+                        <p id="yelp-image3"></p>
+                        <p id="yelpRating3"></p>
+                    </div>
+                </div>
+            </div> -->
         </div>
-
-        
-
     </div>
-</div>
+    <!--End of changes-->
 
-        <!-- <footer>
-                <hr>
-                <h4 class="text-center"></h4>
-            </footer> -->
 
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script src="assets/javascript/personality.js"></script>
-        <script src="assets/javascript/app.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="assets/javascript/personality.js"></script>
+    <script src="assets/javascript/app.js"></script>
 
 </body>
 
