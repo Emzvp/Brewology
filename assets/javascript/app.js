@@ -40,7 +40,7 @@ function yelpQueryURL (userInput) {
     console.log(response);
 
     // looping through all of the yelp businesses to display the name, address, and image
-    for (var i = 0; i < response.businesses.length; i++) {
+    for (var i = 0; i < 10; i++) {
 
       $("#yelpArticles").append(`
       <div class="col-md-6">
@@ -88,11 +88,12 @@ function yelpQueryURL (userInput) {
 
   $("#cheersButton").on("click", function() {
     // })
-    var idLite = "lz4APvJRdLxLBwZOG9";
-    var queryUrl =
-      "https://api.giphy.com/v1/gifs/" +
-      idLite +
-      "?api_key=2bWMtTcIEwQIgbcCIAOXnhGFI9XyklEZ";
+    // var idLite = "lz4APvJRdLxLBwZOG9";
+    // var queryUrl =
+    //   "https://api.giphy.com/v1/gifs/" +
+    //   idLite +
+    //   "?api_key=2bWMtTcIEwQIgbcCIAOXnhGFI9XyklEZ";
+   var queryUrl ="https://api.giphy.com/v1/gifs/random?api_key=2bWMtTcIEwQIgbcCIAOXnhGFI9XyklEZ&tag=beer&rating=G"
 
     $.ajax({
       url: queryUrl,
