@@ -282,12 +282,12 @@ function createPromptItems() {
         //for each option create a radio button that groups questions together
         for (var x = 0; x < promptsVals.length; x++) {
             var radioVal = prompts[i].prompt_values[x].value;
+            var radioWeight = prompts[i].prompt_values[x].weight;
             var inputGroup = i;
             $("#quiz").append(
                 `<p>
-            
             <label >
-            <input class="form-check-input" name="${inputGroup}" type="radio" value="${radioVal}">
+            <input class="form-check-input" name="${inputGroup}" type="radio" value="${radioWeight}">
             <span  value="${radioVal}" name="${inputGroup}">${radioVal}</span>
             </label>
           </p><br>`
@@ -314,30 +314,29 @@ $('#quiz').on('change', '.form-check-input', function () {
 //---------------------------------------RESPONSE / SUBMISSION LOGIC -------------------//   
 
 //Global variables for response function
-var oTotal = 0;
-var cTotal = 0;
 var eTotal = 0;
 var aTotal = 0;
+var cTotal = 0;
 var nTotal = 0;
-var resultResponse = [];
+var oTotal = 0;
 
 //----Submit button click function that adds values together and displays results
 $(document).on("click", "#submit-btn", function () {
     $('.results').removeClass('hide');
     $('.results').addClass('show');
+    eTotal = prompts[0].userChoice + prompts[5].userChoice;
+    aTotal = prompts[1].userChoice + prompts[6].userChoice;
+    cTotal = prompts[2].userChoice + prompts[7].userChoice;
+    nTotal = prompts[3].userChoice + prompts[8].userChoice;
+    oTotal = prompts[4].userChoice + prompts[9].userChoice;
+    console.log("this is etotal" + eTotal);
 
-    prompts.forEach(function (prompts) {
-        //weights of questions with  
-        if (this.prompt_values === question.userChoice) {
-            numCorrect += 1;
-        }
-    })
-    var h2Results = $('<h2>').text("You got " + numCorrect + " out of 10 correct!");
-    $("#questions").remove();
-    $("#display").remove();
-    $("#submit").remove();
-    $("#questionaire").append('<img src="assets/images/theEnd.gif" class="img-fluid rounded mx-auto d-block" alt="Responsive image">');
-    $("#results").append(h2Results);
+    var resultsArr = [eTotal, aTotal, cTotal, nTotal, oTotal];
+    var sortedResults = resultsArr.sort();
+
+    console.log("this is results Arr" + resultsArr)
+    console.log("this is sorted Results" + sortedResults)
+
 });
 
 
