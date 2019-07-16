@@ -322,10 +322,11 @@ var cTotal = 0;
 var nTotal = 0;
 var oTotal = 0;
 
-$("button").on("click", function(event){ 
+$("#submit-btn").on("click", function(event){ 
     event.preventDefault();
     console.log("results clicked");
-    $("form").hide();
+    $("#quizForm").hide();
+  
     
     eTotal = prompts[0].userChoice + prompts[5].userChoice;
     aTotal = prompts[1].userChoice + prompts[6].userChoice;
