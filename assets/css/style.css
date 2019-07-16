@@ -1,26 +1,64 @@
-.jumbotron{
-    background-image: url("https://cdn.newsapi.com.au/image/v1/25940ab648c05089dd4612d4f778d21c?width=1024");
+.jumbotron {
+    background-image: url("https://files.slack.com/files-pri/TKD85M50X-FLDM0TAMD/beer-stock3.jpg");
     color: rgb(255, 255, 255);
     padding-bottom: 10px;
     max-width: 100%;
- 
+    background-position: left;
+    background-color: black;
+    background-repeat: no-repeat;
+    max-height: 100%;
+
 }
-form{
+
+body {
+    background-image: url("https://ae01.alicdn.com/kf/HTB1z4mMIVXXXXbeXFXXq6xXFXXXc/7X5ft-free-shipping-Thin-vinyl-fabric-computer-Printed-photography-background-wood-floor-photo-backdrops-for-photo.jpg");
+
+}
+
+form {
     /* border: 2px solid #222; */
-    padding:2%;
+    padding: 2%;
     padding-top: 0;
 }
-.btn-outline-light{
+
+.btn-outline-light {
     color: rgb(255, 255, 255);
 }
-.fa{
+
+.fa {
     padding-right: 2px;
 }
-#articleContainer{
-    margin-top:20px;
+
+#articleContainer {
+    margin-top: 20px;
     min-height: 100px;
 }
-#brewology{
-   width: 100%;
+
+#brewology {
+    width: 100%;
+
 }
-    
+
+#surveyDiv {
+    background-color: transparent
+}
+
+#surveyDiv::after {
+    content: "#surveyDiv";
+    background: url(image.jpg);
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+#articleDiv {
+    margin: 20px;
+}
+
+.yelp-images {
+   width:100%;
+}

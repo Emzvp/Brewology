@@ -5,14 +5,14 @@ $(document).ready(function() {
   $("#run-search").on("click", function(){
     event.preventDefault();
     $("#yelpArticles").empty();
-    var userInput = $("input").eq(0).val();
+    var userLocation = $(".location-input").eq(0).val();
 
        $("#yelpArticles").show();
-    yelpQueryURL(userInput);
+    yelpQueryURL(userLocation);
   });
 
-function yelpQueryURL (userInput) {
-  // console.log(userInput);
+function yelpQueryURL (userLocation) {
+  console.log(userLocation);
   var url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search`;
   var yelpKey =
     "Mkvzgj8Vt_NhJJHmP7s5yNOYpOB5P6NgLK6ev6O8HyrhXvhn9nisG3WvUovYSz1PHe3cqnhK8LUThY4AoXJ1O17QoBlD-S4IlovdzhUX2BB0j5RCO3kp4w-R1WknXXYx";
@@ -25,7 +25,7 @@ function yelpQueryURL (userInput) {
     },
     data: {
       term: "brewery",
-      location: userInput
+      location: userLocation
     }
   }).then(function(response) {
     console.log(response);
@@ -70,7 +70,7 @@ function yelpQueryURL (userInput) {
 
   $("#cheersButton").on("click", function() {
     
-    var id = "xUPGcFeJiX8IImdEsw";
+    var id = "l0MYrZOf3nGchoTdK";
     var queryUrl =
       "https://api.giphy.com/v1/gifs/" +
       id +
@@ -84,9 +84,11 @@ function yelpQueryURL (userInput) {
       var gifImage = $("<img>");
       gifImage.attr("src", results);
       gifImage.attr("alt", "Cheers");
-      console.log(results);
+      // console.log(results);
       $("#gif-image").prepend(gifImage);
       $("#cheersButton").hide();
     });
   });
 });
+
+
