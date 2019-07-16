@@ -68,7 +68,7 @@ $(document).ready(function () {
   }
   // Beers: Light beers, Sours, Ciders, Porters, IPA
 
-  $("#cheersButton").on("click", function () {
+  $("#submit-btn").on("click", function () {
 //WHEN YOU DECIDE GIF WRITE ID HERE FOR THE RESULT
     var id = "l0MYrZOf3nGchoTdK";
     var queryUrl =
